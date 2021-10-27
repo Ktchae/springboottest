@@ -1,5 +1,5 @@
 GET http://localhost:8081/yeah
-//Accept: application/json
+Accept: application/json
 
 >{%
  client.test("test-hello",function(){
@@ -10,5 +10,4 @@ GET http://localhost:8081/yeah
   client.assert(response.body === "yeah!","false"):
  });
  %}
-
 ###
