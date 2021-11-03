@@ -13,7 +13,7 @@
       <module name="market" target="1.8" />
       <module name="market (1)" target="15" />
       <module name="market (2)" target="1.8" />
-      <module name="springboot-init" target="11" />
+      <module name="springboot-init" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

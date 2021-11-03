@@ -41,3 +41,5 @@ insert into `ebook` (id,name,description) values (3,'Python入门教程','零基
 insert into `ebook` (id,name,description) values (4,'Mysql入门教程','零基础入门Mysql开发，企业级应用开发最佳首选框架');
 
 insert into `ebook` (id,name,description) values (5,'Oracle入门教程','零基础入门Oracle开发，企业级应用开发最佳首选框架');
+
+select * from ebook;
