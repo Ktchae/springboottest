@@ -2,6 +2,7 @@ package com.servicess;
 
 
 import com.Util.CopyUtil;
+import com.Util.SnowFlake;
 import com.domain.Ebook;
 import com.domain.EbookExample;
 import com.github.pagehelper.PageHelper;
@@ -26,6 +27,10 @@ public class EbookService {
 
     @Resource
     private EbookMapper ebookMapper;
+
+    @Resource
+    private SnowFlake snowFlake;
+
 
     public PageResp<EbookQueryResp> list(EbookQueryReq req){
         EbookExample ebookExample = new EbookExample();
@@ -68,6 +73,7 @@ public class EbookService {
         Ebook ebook = CopyUtil.copy(req,Ebook.class);
         if (ObjectUtils.isEmpty(req.getId())){
             //新增
+            ebook.setId(snowFlake.nextId());
             ebookMapper.insert(ebook);
         }else {
             //更新
