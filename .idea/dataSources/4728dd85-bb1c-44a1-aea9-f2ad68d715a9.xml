@@ -913,7 +913,7 @@ SELECT|mysql.time_zone
     </column>
     <column id="282" parent="278" name="parent">
       <Position>2</Position>
-      <Comment>夫id</Comment>
+      <Comment>父id</Comment>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
