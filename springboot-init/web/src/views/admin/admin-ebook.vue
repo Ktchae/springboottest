@@ -52,6 +52,7 @@
       </a-table>
     </a-layout-content>
   </a-layout>
+
   <a-modal
     title="电子书表单"
     v-model:visible="modalVisible"
@@ -109,11 +110,11 @@ export default defineComponent({
       },
       {
         title: '分类一',
-        slots: { customRender: 'category' }
+        slots: { customRender: 'category1Id' }
       },
       {
         title: '分类二',
-        slots: { customRender: 'category' }
+        slots: { customRender: 'category2Id' }
       },
       {
         title: '文档数',
@@ -139,6 +140,8 @@ export default defineComponent({
      **/
     const handleQuery = (params: any) => {
       loading.value = true;
+      // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
+      ebooks.value = [];
       axios.get("/ebook/list",{
         params:{
           page:params.page,
