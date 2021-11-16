@@ -264,6 +264,10 @@ export default defineComponent({
       });
     };
 
+    /**
+     *
+     * 显示名称
+     */
     const getCategoryName = (cid: number) => {
       // console.log(cid)
       let result = "";
