@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent ,onMounted,ref,reactive,toRef} from 'vue';
+import { defineComponent ,onMounted,ref} from 'vue';
 import axios from "axios";
 import { message } from 'ant-design-vue';
 import {Tool} from "@/util/tool";
@@ -97,31 +97,40 @@ export default defineComponent({
 
     const isShowWelcome = ref(true);
 
-    const handleClick = (value:any) => {
-       // console.log("menu click",value)
-      // if (value.key === 'welcome'){
-      //   isShowWelcome.value = true;
-      // }else {
-      //   isShowWelcome.value = false;
-      // }  简化后:
-      isShowWelcome.value = value.key === 'welcome';
-    };
+    let categoryId2 = 0;
 
-
-
-
-    onMounted(()=>{
-      handleQueryCategory();
+    const handleQueryEbook = () =>{
       axios.get("/ebook/list",{
         params:{
           page:1,
-          size:1000
+          size:1000,
+          categoryId2: categoryId2
         }
       }).then( (resp) => {
         const data = resp.data;
         ebooks.value = data.content.list;
         // ebooks1.books = data.content;
       });
+    };
+
+    const handleClick = (value:any) => {
+       // console.log("menu click",value)
+      if (value.key === 'welcome'){
+        isShowWelcome.value = true;
+      }else {
+        categoryId2 = value.key;
+        isShowWelcome.value = false;
+        handleQueryEbook();
+      }
+      // 简化后:
+      // isShowWelcome.value = value.key === 'welcome';
+    };
+
+
+
+    onMounted(()=>{
+      handleQueryCategory();
+      // handleQueryEbook();
     });
     return{
       ebooks,
