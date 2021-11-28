@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mapper.UserMapper;
 import com.req.UserQueryReq;
+import com.req.UserResetPasswordReq;
 import com.req.UserSaveReq;
 import com.resp.PageResp;
 import com.resp.UserQueryResp;
@@ -112,6 +113,14 @@ public class UserService {
         }else {
             return userList.get(0);
         }
+    }
+
+    /**
+     * 修改密码
+     */
+    public void resetPassword(UserResetPasswordReq req){
+        User user = CopyUtil.copy(req,User.class);
+        userMapper.updateByPrimaryKeySelective(user);
     }
 
 }

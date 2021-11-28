@@ -1,10 +1,11 @@
 package com.controller;
 
 import com.req.UserQueryReq;
+import com.req.UserResetPasswordReq;
 import com.req.UserSaveReq;
 import com.resp.CommonResp;
-import com.resp.UserQueryResp;
 import com.resp.PageResp;
+import com.resp.UserQueryResp;
 import com.servicess.UserService;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,14 @@ public class UserController {
     public CommonResp delete(@PathVariable Long id){
         CommonResp resp = new CommonResp<>();
         userservice.delete(id);
+        return resp;
+    }
+
+    @PostMapping("/reset-password")
+    public CommonResp resetPassword(@Valid @RequestBody UserResetPasswordReq req){
+        req.setPassword(DigestUtils.md5DigestAsHex(req.getPassword().getBytes()));
+        CommonResp resp = new CommonResp<>();
+        userservice.resetPassword(req);
         return resp;
     }
 
