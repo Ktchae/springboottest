@@ -27,6 +27,7 @@
       </a>
     </a-menu>
 
+
     <a-modal
         title="登录"
         v-model:visible="loginModalVisible"
@@ -97,8 +98,8 @@ export default defineComponent({
 
 
 <style>
- .login-menu{
-   float: right;
-   color: white;
- }
+.login-menu{
+  float: right;
+  color: white;
+}
 </style>
