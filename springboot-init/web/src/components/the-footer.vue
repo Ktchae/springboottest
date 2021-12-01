@@ -1,13 +1,22 @@
 <template>
   <a-layout-footer style="text-align: center">
-    202111111
+    欢迎：{{user.name}} !
   </a-layout-footer>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import store from '@/store';
+import { defineComponent,computed } from 'vue';
 
 export default defineComponent({
   name: 'the-footer',
+
+  setup(){
+    const user = computed(() => store.state.user);
+
+    return{
+      user
+    }
+  }
 });
 </script>
