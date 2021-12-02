@@ -1,6 +1,6 @@
 <template>
   <a-layout-header class="header">
-    <div class="logo" />
+    <div class="logo">电子书</div>
     <a-menu
         theme="dark"
         mode="horizontal"
@@ -22,10 +22,10 @@
       <a-menu-item key="/about">
         <router-link to="/about">关于我们</router-link>
       </a-menu-item>
-      <a class="login-menu" v-show="user.id">
+      <a class="login-menu" v-show="user.id" style="position:absolute;right:50px;">
         <span>您好：{{ user.name }}</span>
       </a>
-      <a class="login-menu" v-show="!user.id" @click="showLoginModal">
+      <a class="login-menu" v-show="!user.id" @click="showLoginModal" style="position:absolute;right:50px;">
         <span>登录</span>
       </a>
     </a-menu>
@@ -107,8 +107,8 @@ export default defineComponent({
 
 
 <style>
-.login-menu{
-  float: right;
+.login-menu {
   color: white;
+  float: right;
 }
 </style>
