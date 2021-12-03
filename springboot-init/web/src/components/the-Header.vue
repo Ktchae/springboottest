@@ -97,6 +97,7 @@ export default defineComponent({
           loginModalVisible.value = false;
           message.success("登录成功！");
           store.commit("setUser",data.content);
+          location.reload();
         } else {
           message.error(data.message);
         }
