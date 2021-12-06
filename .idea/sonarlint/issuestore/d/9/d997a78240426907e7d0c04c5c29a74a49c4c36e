@@ -1,0 +1,13 @@
+
+E
+java:S3740P"/Provide the parametrized type for this generic.(´ì½²
+R
+java:S1854;"<Remove this useless assignment to local variable "criteria".(ò³ö‘
+C
+java:S1481;"-Remove this unused "criteria" local variable.(ò³ö‘
+j
+java:S3252<"OUse static access with "com.github.pagehelper.page.PageMethod" for "startPage".(üÓà»ùÿÿÿÿ
+V	java:S125C"<This block of commented-out lines of code should be removed.(òàíÈúÿÿÿÿ
+Q	java:S125I"<This block of commented-out lines of code should be removed.(¬û‰
+w
+java:S14883"\Immediately return this expression instead of assigning it to the temporary variable "list".(€Œ­‘ùÿÿÿÿ

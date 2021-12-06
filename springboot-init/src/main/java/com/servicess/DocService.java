@@ -2,10 +2,14 @@ package com.servicess;
 
 
 import com.Util.CopyUtil;
+import com.Util.RedisUtil;
+import com.Util.RequestContext;
 import com.Util.SnowFlake;
 import com.domain.Content;
 import com.domain.Doc;
 import com.domain.DocExample;
+import com.exception.BusinessException;
+import com.exception.BusinessExceptionCode;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mapper.ContentMapper;
@@ -40,8 +44,11 @@ public class DocService {
     @Resource
     private SnowFlake snowFlake;
 
+    @Resource
+    public RedisUtil redisUtil;
 
-    public List<DocQueryResp> all(Long ebookId){
+
+    public List<DocQueryResp> all(Long ebookId) {
         DocExample docExample = new DocExample();
         docExample.createCriteria().andEbookIdEqualTo(ebookId);
         docExample.setOrderByClause("sort asc");
@@ -53,7 +60,7 @@ public class DocService {
         return list;
     }
 
-    public PageResp<DocQueryResp> list(DocQueryReq req){
+    public PageResp<DocQueryResp> list(DocQueryReq req) {
         DocExample docExample = new DocExample();
         docExample.setOrderByClause("sort asc");
         DocExample.Criteria criteria = docExample.createCriteria();
@@ -61,8 +68,8 @@ public class DocService {
         List<Doc> docList = docMapper.selectByExample(docExample);
 
         PageInfo<Doc> pageInfo = new PageInfo<>(docList);
-        LOG.info("总行数：{}",pageInfo.getTotal());
-        LOG.info("总页数：{}",pageInfo.getPages());
+        LOG.info("总行数：{}", pageInfo.getTotal());
+        LOG.info("总页数：{}", pageInfo.getPages());
 
 //        List<DocResp> respList = new ArrayList<>();
 //        for (Doc doc : docList) {
@@ -87,10 +94,10 @@ public class DocService {
     /**
      * 保存
      */
-    public void save(DocSaveReq req){
-        Doc doc = CopyUtil.copy(req,Doc.class);
+    public void save(DocSaveReq req) {
+        Doc doc = CopyUtil.copy(req, Doc.class);
         Content content = CopyUtil.copy(req, Content.class);
-        if (ObjectUtils.isEmpty(req.getId())){
+        if (ObjectUtils.isEmpty(req.getId())) {
             //新增
             doc.setId(snowFlake.nextId());
             doc.setViewCount(0);
@@ -99,11 +106,11 @@ public class DocService {
             //新增
             content.setId(doc.getId());
             contentMapper.insert(content);
-        }else {
+        } else {
             //更新
             docMapper.updateByPrimaryKey(doc);
             int count = contentMapper.updateByPrimaryKeyWithBLOBs(content);
-            if (count == 0){
+            if (count == 0) {
                 contentMapper.insert(content);
             }
         }
@@ -113,26 +120,43 @@ public class DocService {
     /**
      * 删除
      */
-    public void delete(Long id){
+    public void delete(Long id) {
         docMapper.deleteByPrimaryKey(id);
     }
 
-    public void delete(List<String> ids){
+    public void delete(List<String> ids) {
         DocExample docExample = new DocExample();
         DocExample.Criteria criteria = docExample.createCriteria();
         criteria.andIdIn(ids);
         docMapper.deleteByExample(docExample);
     }
 
-    public String findContent(Long id){
+    public String findContent(Long id) {
         Content content = contentMapper.selectByPrimaryKey(id);
         //文档阅读数+1
         docMapperCust.increaseViewCount(id);
-        if (ObjectUtils.isEmpty(content)){
+        if (ObjectUtils.isEmpty(content)) {
             return "";
-        }else {
+        } else {
             return content.getContent();
         }
     }
 
+    /**
+     * 点赞
+     */
+    public void vote(Long id) {
+        // docMapperCust.increaseVoteCount(id);
+        // 远程IP+doc.id作为key，24小时内不能重复
+        String ip = RequestContext.getRemoteAddr();
+        if (redisUtil.validateRepeat("DOC_VOTE_" + id + "_" + ip, 5000)) {
+            docMapperCust.increaseVoteCount(id);
+        } else {
+            throw new BusinessException(BusinessExceptionCode.VOTE_REPEAT);
+        }
+    }
+
+    public void updateEbookInfo(){
+        docMapperCust.updateEbookInfo();
+    }
 }
