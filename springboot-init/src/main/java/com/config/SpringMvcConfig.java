@@ -37,6 +37,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 //    @Resource
 //    ActionInterceptor actionInterceptor;
 
+    @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/**")
@@ -47,9 +48,9 @@ public class SpringMvcConfig implements WebMvcConfigurer {
                         "/category/all",
                         "/ebook/list",
                         "/doc/all/**",
-//                        "/doc/vote/**",
-                        "/doc/find-content/**"
-//                        "/ebook-snapshot/**"
+                        "/doc/vote/**",
+                        "/doc/find-content/**",
+                        "/ebook-snapshot/**"
                 );
 
 //        registry.addInterceptor(actionInterceptor)

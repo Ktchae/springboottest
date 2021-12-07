@@ -103,7 +103,7 @@ public class DocService {
             doc.setViewCount(0);
             doc.setVoteCount(0);
             docMapper.insert(doc);
-            //新增
+
             content.setId(doc.getId());
             contentMapper.insert(content);
         } else {
