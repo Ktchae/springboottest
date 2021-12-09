@@ -3492,3 +3492,636 @@ Caused by: java.io.FileNotFoundException: class path resource [com/rocketmq/Vote
 2021-12-10 01:03:35.605 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194243223883776[0;39m ==> Parameters: 
 2021-12-10 01:03:35.687 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194243223883776[0;39m <==    Updates: 2
 2021-12-10 01:03:35.688 INFO  com.job.DocJob                                    :35   [32m124194243223883776[0;39m 更新电子书下的文档数据结束，耗时：686毫秒
+2021-12-10 01:04:44.862 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.2.0.Final
+2021-12-10 01:04:44.869 INFO  com.SpringbootInitApplication                     :55   [32m                  [0;39m Starting SpringbootInitApplication using Java 15 on PC-20210710SYOZ with PID 5848 (E:\market\market\springboot-init\target\classes started by Administrator in E:\market\market)
+2021-12-10 01:04:44.878 INFO  com.SpringbootInitApplication                     :659  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-12-10 01:04:44.944 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-10 01:04:44.945 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-10 01:04:46.466 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :262  [32m                  [0;39m Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-10 01:04:46.469 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :132  [32m                  [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-10 01:04:47.264 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :201  [32m                  [0;39m Finished Spring Data repository scanning in 772 ms. Found 0 Redis repository interfaces.
+2021-12-10 01:04:48.109 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8081 (http)
+2021-12-10 01:04:48.118 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8081"]
+2021-12-10 01:04:48.119 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-12-10 01:04:48.120 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-10 01:04:48.197 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-12-10 01:04:48.205 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :290  [32m                  [0;39m Root WebApplicationContext: initialization completed in 3259 ms
+2021-12-10 01:04:50.492 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-12-10 01:04:50.637 INFO  o.a.r.s.support.DefaultRocketMQListenerContainer  :285  [32m                  [0;39m running container: DefaultRocketMQListenerContainer{consumerGroup='default', nameServer='127.0.0.1:9876', topic='VOTE_TOPIC', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING}
+2021-12-10 01:04:50.637 INFO  o.a.r.s.a.ListenerContainerConfiguration          :127  [32m                  [0;39m Register the listener to container, listenerBeanName:voteTopicConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_1
+2021-12-10 01:04:50.670 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8081"]
+2021-12-10 01:04:50.680 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8081 (http) with context path ''
+2021-12-10 01:04:50.696 INFO  com.SpringbootInitApplication                     :61   [32m                  [0;39m Started SpringbootInitApplication in 6.628 seconds (JVM running for 7.753)
+2021-12-10 01:05:05.002 INFO  com.job.DocJob                                    :32   [32m124194620711243776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:05:05.026 INFO  com.zaxxer.hikari.HikariDataSource                :110  [32m124194620711243776[0;39m HikariPool-1 - Starting...
+2021-12-10 01:05:05.733 INFO  com.zaxxer.hikari.HikariDataSource                :123  [32m124194620711243776[0;39m HikariPool-1 - Start completed.
+2021-12-10 01:05:05.741 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194620711243776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:05:05.763 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194620711243776[0;39m ==> Parameters: 
+2021-12-10 01:05:05.859 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194620711243776[0;39m <==    Updates: 2
+2021-12-10 01:05:05.861 INFO  com.job.DocJob                                    :35   [32m124194620711243776[0;39m 更新电子书下的文档数据结束，耗时：858毫秒
+2021-12-10 01:05:35.002 INFO  com.job.DocJob                                    :32   [32m124194746540363776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:05:35.065 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194746540363776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:05:35.066 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194746540363776[0;39m ==> Parameters: 
+2021-12-10 01:05:35.156 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194746540363776[0;39m <==    Updates: 2
+2021-12-10 01:05:35.157 INFO  com.job.DocJob                                    :35   [32m124194746540363776[0;39m 更新电子书下的文档数据结束，耗时：155毫秒
+2021-12-10 01:06:05.001 INFO  com.job.DocJob                                    :32   [32m124194872365289472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:06:05.043 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194872365289472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:06:05.044 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194872365289472[0;39m ==> Parameters: 
+2021-12-10 01:06:05.133 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194872365289472[0;39m <==    Updates: 2
+2021-12-10 01:06:05.134 INFO  com.job.DocJob                                    :35   [32m124194872365289472[0;39m 更新电子书下的文档数据结束，耗时：133毫秒
+2021-12-10 01:06:35.001 INFO  com.job.DocJob                                    :32   [32m124194998194409472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:06:35.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194998194409472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:06:35.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194998194409472[0;39m ==> Parameters: 
+2021-12-10 01:06:35.137 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124194998194409472[0;39m <==    Updates: 2
+2021-12-10 01:06:35.138 INFO  com.job.DocJob                                    :35   [32m124194998194409472[0;39m 更新电子书下的文档数据结束，耗时：137毫秒
+2021-12-10 01:07:05.001 INFO  com.job.DocJob                                    :32   [32m124195124023529472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:07:05.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195124023529472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:07:05.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195124023529472[0;39m ==> Parameters: 
+2021-12-10 01:07:05.136 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195124023529472[0;39m <==    Updates: 2
+2021-12-10 01:07:05.136 INFO  com.job.DocJob                                    :35   [32m124195124023529472[0;39m 更新电子书下的文档数据结束，耗时：134毫秒
+2021-12-10 01:07:35.002 INFO  com.job.DocJob                                    :32   [32m124195249856843776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:07:35.048 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195249856843776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:07:35.049 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195249856843776[0;39m ==> Parameters: 
+2021-12-10 01:07:35.138 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195249856843776[0;39m <==    Updates: 2
+2021-12-10 01:07:35.138 INFO  com.job.DocJob                                    :35   [32m124195249856843776[0;39m 更新电子书下的文档数据结束，耗时：135毫秒
+2021-12-10 01:08:05.002 INFO  com.job.DocJob                                    :32   [32m124195375685963776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:08:05.055 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195375685963776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:08:05.056 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195375685963776[0;39m ==> Parameters: 
+2021-12-10 01:08:05.181 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195375685963776[0;39m <==    Updates: 2
+2021-12-10 01:08:05.182 INFO  com.job.DocJob                                    :35   [32m124195375685963776[0;39m 更新电子书下的文档数据结束，耗时：179毫秒
+2021-12-10 01:08:35.001 INFO  com.job.DocJob                                    :32   [32m124195501510889472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:08:35.049 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195501510889472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:08:35.050 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195501510889472[0;39m ==> Parameters: 
+2021-12-10 01:08:35.139 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195501510889472[0;39m <==    Updates: 2
+2021-12-10 01:08:35.140 INFO  com.job.DocJob                                    :35   [32m124195501510889472[0;39m 更新电子书下的文档数据结束，耗时：138毫秒
+2021-12-10 01:09:05.001 INFO  com.job.DocJob                                    :32   [32m124195627340009472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:09:05.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195627340009472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:09:05.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195627340009472[0;39m ==> Parameters: 
+2021-12-10 01:09:05.374 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195627340009472[0;39m <==    Updates: 2
+2021-12-10 01:09:05.375 INFO  com.job.DocJob                                    :35   [32m124195627340009472[0;39m 更新电子书下的文档数据结束，耗时：373毫秒
+2021-12-10 01:09:35.002 INFO  com.job.DocJob                                    :32   [32m124195753173323776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:09:35.047 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195753173323776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:09:35.047 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195753173323776[0;39m ==> Parameters: 
+2021-12-10 01:09:35.134 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195753173323776[0;39m <==    Updates: 2
+2021-12-10 01:09:35.135 INFO  com.job.DocJob                                    :35   [32m124195753173323776[0;39m 更新电子书下的文档数据结束，耗时：132毫秒
+2021-12-10 01:10:05.002 INFO  com.job.DocJob                                    :32   [32m124195879002443776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:10:05.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195879002443776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:10:05.046 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195879002443776[0;39m ==> Parameters: 
+2021-12-10 01:10:05.138 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124195879002443776[0;39m <==    Updates: 2
+2021-12-10 01:10:05.139 INFO  com.job.DocJob                                    :35   [32m124195879002443776[0;39m 更新电子书下的文档数据结束，耗时：137毫秒
+2021-12-10 01:10:35.002 INFO  com.job.DocJob                                    :32   [32m124196004831563776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:10:35.052 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196004831563776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:10:35.052 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196004831563776[0;39m ==> Parameters: 
+2021-12-10 01:10:35.141 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196004831563776[0;39m <==    Updates: 2
+2021-12-10 01:10:35.142 INFO  com.job.DocJob                                    :35   [32m124196004831563776[0;39m 更新电子书下的文档数据结束，耗时：140毫秒
+2021-12-10 01:11:05.001 INFO  com.job.DocJob                                    :32   [32m124196130656489472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:11:05.054 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196130656489472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:11:05.055 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196130656489472[0;39m ==> Parameters: 
+2021-12-10 01:11:05.182 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196130656489472[0;39m <==    Updates: 2
+2021-12-10 01:11:05.183 INFO  com.job.DocJob                                    :35   [32m124196130656489472[0;39m 更新电子书下的文档数据结束，耗时：181毫秒
+2021-12-10 01:11:33.297 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-10 01:11:33.298 INFO  org.springframework.web.servlet.DispatcherServlet :525  [32m                  [0;39m Initializing Servlet 'dispatcherServlet'
+2021-12-10 01:11:33.300 INFO  org.springframework.web.servlet.DispatcherServlet :547  [32m                  [0;39m Completed initialization in 2 ms
+2021-12-10 01:11:33.336 INFO  com.aspect.LogAspect                              :54   [32m124196249497899008[0;39m ------------- 开始 -------------
+2021-12-10 01:11:33.337 INFO  com.aspect.LogAspect                              :55   [32m124196249497899008[0;39m 请求地址: http://localhost:8081/category/all GET
+2021-12-10 01:11:33.337 INFO  com.aspect.LogAspect                              :56   [32m124196249497899008[0;39m 类名方法: com.controller.CategoryController.all
+2021-12-10 01:11:33.338 INFO  com.aspect.LogAspect                              :57   [32m124196249497899008[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:33.340 INFO  com.aspect.LogAspect                              :80   [32m124196249497899008[0;39m 请求参数: []
+2021-12-10 01:11:33.347 INFO  com.websocket.WebSocketServer                     :32   [32m                  [0;39m 有新连接：token：gX55h8Nj5n，session id：0，当前连接数：1
+2021-12-10 01:11:33.406 DEBUG com.mapper.CategoryMapper.selectByExample         :137  [32m124196249497899008[0;39m ==>  Preparing: select id, parent, `name`, sort from category order by sort asc
+2021-12-10 01:11:33.407 DEBUG com.mapper.CategoryMapper.selectByExample         :137  [32m124196249497899008[0;39m ==> Parameters: 
+2021-12-10 01:11:33.491 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==    Columns: id, parent, name, sort
+2021-12-10 01:11:33.492 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 115484701694758912, 0, test, 1
+2021-12-10 01:11:33.493 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 115484763686572032, 115484701694758910, test1, 2
+2021-12-10 01:11:33.494 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 115149044279545856, 123, 23, 21
+2021-12-10 01:11:33.495 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 100, 0, 前端开发, 100
+2021-12-10 01:11:33.495 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 101, 100, Vue, 101
+2021-12-10 01:11:33.496 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 102, 100, HTML & CSS, 102
+2021-12-10 01:11:33.496 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 200, 0, Java, 200
+2021-12-10 01:11:33.497 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 201, 200, 基础应用, 201
+2021-12-10 01:11:33.498 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 202, 200, 框架应用, 202
+2021-12-10 01:11:33.499 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 300, 0, Python, 300
+2021-12-10 01:11:33.499 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 301, 300, 基础应用, 301
+2021-12-10 01:11:33.500 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 302, 300, 进阶方向应用, 302
+2021-12-10 01:11:33.501 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 400, 0, 数据库, 400
+2021-12-10 01:11:33.501 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 401, 400, MySQL, 401
+2021-12-10 01:11:33.502 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 117509419725623296, 400, Oracle, 402
+2021-12-10 01:11:33.503 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 500, 0, 其他, 500
+2021-12-10 01:11:33.507 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 501, 500, 服务器, 501
+2021-12-10 01:11:33.508 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 502, 500, 开发工具, 502
+2021-12-10 01:11:33.508 TRACE com.mapper.CategoryMapper.selectByExample         :143  [32m124196249497899008[0;39m <==        Row: 503, 500, 热门服务端语言, 503
+2021-12-10 01:11:33.509 DEBUG com.mapper.CategoryMapper.selectByExample         :137  [32m124196249497899008[0;39m <==      Total: 19
+2021-12-10 01:11:33.533 INFO  com.aspect.LogAspect                              :92   [32m124196249497899008[0;39m 返回结果: {"content":[{"id":115484701694758912,"name":"test","parent":0,"sort":1},{"id":115484763686572032,"name":"test1","parent":115484701694758910,"sort":2},{"id":115149044279545856,"name":"23","parent":123,"sort":21},{"id":100,"name":"前端开发","parent":0,"sort":100},{"id":101,"name":"Vue","parent":100,"sort":101},{"id":102,"name":"HTML & CSS","parent":100,"sort":102},{"id":200,"name":"Java","parent":0,"sort":200},{"id":201,"name":"基础应用","parent":200,"sort":201},{"id":202,"name":"框架应用","parent":200,"sort":202},{"id":300,"name":"Python","parent":0,"sort":300},{"id":301,"name":"基础应用","parent":300,"sort":301},{"id":302,"name":"进阶方向应用","parent":300,"sort":302},{"id":400,"name":"数据库","parent":0,"sort":400},{"id":401,"name":"MySQL","parent":400,"sort":401},{"id":117509419725623296,"name":"Oracle","parent":400,"sort":402},{"id":500,"name":"其他","parent":0,"sort":500},{"id":501,"name":"服务器","parent":500,"sort":501},{"id":502,"name":"开发工具","parent":500,"sort":502},{"id":503,"name":"热门服务端语言","parent":500,"sort":503}],"success":true}
+2021-12-10 01:11:33.533 INFO  com.aspect.LogAspect                              :93   [32m124196249497899008[0;39m ------------- 结束 耗时：198 ms -------------
+2021-12-10 01:11:35.000 INFO  com.job.DocJob                                    :32   [32m124196256481415168[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:11:35.045 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196256481415168[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:11:35.045 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196256481415168[0;39m ==> Parameters: 
+2021-12-10 01:11:35.160 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196256481415168[0;39m <==    Updates: 2
+2021-12-10 01:11:35.160 INFO  com.job.DocJob                                    :35   [32m124196256481415168[0;39m 更新电子书下的文档数据结束，耗时：160毫秒
+2021-12-10 01:11:36.895 INFO  com.aspect.LogAspect                              :54   [32m124196264429621248[0;39m ------------- 开始 -------------
+2021-12-10 01:11:36.895 INFO  com.aspect.LogAspect                              :55   [32m124196264429621248[0;39m 请求地址: http://localhost:8081/ebook/list GET
+2021-12-10 01:11:36.896 INFO  com.aspect.LogAspect                              :56   [32m124196264429621248[0;39m 类名方法: com.controller.EbookController.list
+2021-12-10 01:11:36.896 INFO  com.aspect.LogAspect                              :57   [32m124196264429621248[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:36.899 INFO  com.aspect.LogAspect                              :80   [32m124196264429621248[0;39m 请求参数: [{"categoryId2":101,"page":1,"size":1000}]
+2021-12-10 01:11:37.004 DEBUG com.mapper.EbookMapper.selectByExample_COUNT      :137  [32m124196264429621248[0;39m ==>  Preparing: SELECT count(0) FROM ebook WHERE (category2_id = ?)
+2021-12-10 01:11:37.005 DEBUG com.mapper.EbookMapper.selectByExample_COUNT      :137  [32m124196264429621248[0;39m ==> Parameters: 101(Long)
+2021-12-10 01:11:37.058 TRACE com.mapper.EbookMapper.selectByExample_COUNT      :143  [32m124196264429621248[0;39m <==    Columns: count(0)
+2021-12-10 01:11:37.059 TRACE com.mapper.EbookMapper.selectByExample_COUNT      :143  [32m124196264429621248[0;39m <==        Row: 1
+2021-12-10 01:11:37.059 DEBUG com.mapper.EbookMapper.selectByExample_COUNT      :137  [32m124196264429621248[0;39m <==      Total: 1
+2021-12-10 01:11:37.062 DEBUG com.mapper.EbookMapper.selectByExample            :137  [32m124196264429621248[0;39m ==>  Preparing: select id, `name`, category1_id, category2_id, description, cover, doc_count, view_count, vote_count from ebook WHERE ( category2_id = ? ) LIMIT ?
+2021-12-10 01:11:37.063 DEBUG com.mapper.EbookMapper.selectByExample            :137  [32m124196264429621248[0;39m ==> Parameters: 101(Long), 1000(Integer)
+2021-12-10 01:11:37.107 TRACE com.mapper.EbookMapper.selectByExample            :143  [32m124196264429621248[0;39m <==    Columns: id, name, category1_id, category2_id, description, cover, doc_count, view_count, vote_count
+2021-12-10 01:11:37.107 TRACE com.mapper.EbookMapper.selectByExample            :143  [32m124196264429621248[0;39m <==        Row: 2, Vue入门教程, 100, 101, 零基础入门Vue开发，企业级应用开发最佳首选框架, /image/cover2.png, 8, 58, 14
+2021-12-10 01:11:37.108 DEBUG com.mapper.EbookMapper.selectByExample            :137  [32m124196264429621248[0;39m <==      Total: 1
+2021-12-10 01:11:37.110 INFO  com.servicess.EbookService                        :48   [32m124196264429621248[0;39m 总行数：1
+2021-12-10 01:11:37.110 INFO  com.servicess.EbookService                        :49   [32m124196264429621248[0;39m 总页数：1
+2021-12-10 01:11:37.121 INFO  com.aspect.LogAspect                              :92   [32m124196264429621248[0;39m 返回结果: {"content":{"list":[{"category1Id":100,"category2Id":101,"cover":"/image/cover2.png","description":"零基础入门Vue开发，企业级应用开发最佳首选框架","docCount":8,"id":2,"name":"Vue入门教程","viewCount":58,"voteCount":14}],"total":1},"success":true}
+2021-12-10 01:11:37.121 INFO  com.aspect.LogAspect                              :93   [32m124196264429621248[0;39m ------------- 结束 耗时：226 ms -------------
+2021-12-10 01:11:38.048 INFO  com.aspect.LogAspect                              :54   [32m124196269265653760[0;39m ------------- 开始 -------------
+2021-12-10 01:11:38.049 INFO  com.aspect.LogAspect                              :55   [32m124196269265653760[0;39m 请求地址: http://localhost:8081/doc/all/2 GET
+2021-12-10 01:11:38.049 INFO  com.aspect.LogAspect                              :56   [32m124196269265653760[0;39m 类名方法: com.controller.DocController.all
+2021-12-10 01:11:38.049 INFO  com.aspect.LogAspect                              :57   [32m124196269265653760[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:38.050 INFO  com.aspect.LogAspect                              :80   [32m124196269265653760[0;39m 请求参数: [2]
+2021-12-10 01:11:38.124 DEBUG com.mapper.DocMapper.selectByExample              :137  [32m124196269265653760[0;39m ==>  Preparing: select id, ebook_id, parent, `name`, sort, view_count, vote_count from doc WHERE ( ebook_id = ? ) order by sort asc
+2021-12-10 01:11:38.124 DEBUG com.mapper.DocMapper.selectByExample              :137  [32m124196269265653760[0;39m ==> Parameters: 2(Long)
+2021-12-10 01:11:38.174 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==    Columns: id, ebook_id, parent, name, sort, view_count, vote_count
+2021-12-10 01:11:38.175 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 9, 2, 0, 文档1, 1, 25, 1
+2021-12-10 01:11:38.175 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 122746345772683264, 2, 0, 文档2, 1, 12, 2
+2021-12-10 01:11:38.176 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 123355131981991936, 2, 9, 文档1.1, 1, 7, 2
+2021-12-10 01:11:38.176 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 123355236525019136, 2, 122746345772683264, 文档2.1, 1, 6, 4
+2021-12-10 01:11:38.177 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 124191156778176512, 2, 0, 文档3, 1, 1, 1
+2021-12-10 01:11:38.177 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 123355187095146496, 2, 9, 文档1.2, 2, 5, 2
+2021-12-10 01:11:38.178 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 124191201023889408, 2, 124191156778176512, 文档3.1, 2, 2, 2
+2021-12-10 01:11:38.178 TRACE com.mapper.DocMapper.selectByExample              :143  [32m124196269265653760[0;39m <==        Row: 124191230128164864, 2, 124191156778176512, 文档3.2, 3, 0, 0
+2021-12-10 01:11:38.179 DEBUG com.mapper.DocMapper.selectByExample              :137  [32m124196269265653760[0;39m <==      Total: 8
+2021-12-10 01:11:38.189 INFO  com.aspect.LogAspect                              :92   [32m124196269265653760[0;39m 返回结果: {"content":[{"ebookId":2,"id":9,"name":"文档1","parent":0,"sort":1,"viewCount":25,"voteCount":1},{"ebookId":2,"id":122746345772683264,"name":"文档2","parent":0,"sort":1,"viewCount":12,"voteCount":2},{"ebookId":2,"id":123355131981991936,"name":"文档1.1","parent":9,"sort":1,"viewCount":7,"voteCount":2},{"ebookId":2,"id":123355236525019136,"name":"文档2.1","parent":122746345772683264,"sort":1,"viewCount":6,"voteCount":4},{"ebookId":2,"id":124191156778176512,"name":"文档3","parent":0,"sort":1,"viewCount":1,"voteCount":1},{"ebookId":2,"id":123355187095146496,"name":"文档1.2","parent":9,"sort":2,"viewCount":5,"voteCount":2},{"ebookId":2,"id":124191201023889408,"name":"文档3.1","parent":124191156778176512,"sort":2,"viewCount":2,"voteCount":2},{"ebookId":2,"id":124191230128164864,"name":"文档3.2","parent":124191156778176512,"sort":3,"viewCount":0,"voteCount":0}],"success":true}
+2021-12-10 01:11:38.190 INFO  com.aspect.LogAspect                              :93   [32m124196269265653760[0;39m ------------- 结束 耗时：142 ms -------------
+2021-12-10 01:11:38.212 INFO  com.aspect.LogAspect                              :54   [32m124196269953519616[0;39m ------------- 开始 -------------
+2021-12-10 01:11:38.212 INFO  com.aspect.LogAspect                              :55   [32m124196269953519616[0;39m 请求地址: http://localhost:8081/doc/find-content/9 GET
+2021-12-10 01:11:38.213 INFO  com.aspect.LogAspect                              :56   [32m124196269953519616[0;39m 类名方法: com.controller.DocController.findContent
+2021-12-10 01:11:38.213 INFO  com.aspect.LogAspect                              :57   [32m124196269953519616[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:38.213 INFO  com.aspect.LogAspect                              :80   [32m124196269953519616[0;39m 请求参数: [9]
+2021-12-10 01:11:38.214 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196269953519616[0;39m ==>  Preparing: select id , content from content where id = ?
+2021-12-10 01:11:38.214 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196269953519616[0;39m ==> Parameters: 9(Long)
+2021-12-10 01:11:38.259 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196269953519616[0;39m <==      Total: 0
+2021-12-10 01:11:38.260 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196269953519616[0;39m ==>  Preparing: update doc set view_count = view_count + 1 where id = ?
+2021-12-10 01:11:38.261 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196269953519616[0;39m ==> Parameters: 9(Long)
+2021-12-10 01:11:38.381 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196269953519616[0;39m <==    Updates: 1
+2021-12-10 01:11:38.381 INFO  com.aspect.LogAspect                              :92   [32m124196269953519616[0;39m 返回结果: {"content":"","success":true}
+2021-12-10 01:11:38.381 INFO  com.aspect.LogAspect                              :93   [32m124196269953519616[0;39m ------------- 结束 耗时：169 ms -------------
+2021-12-10 01:11:40.240 INFO  com.aspect.LogAspect                              :54   [32m124196278459568128[0;39m ------------- 开始 -------------
+2021-12-10 01:11:40.240 INFO  com.aspect.LogAspect                              :55   [32m124196278459568128[0;39m 请求地址: http://localhost:8081/doc/vote/9 GET
+2021-12-10 01:11:40.240 INFO  com.aspect.LogAspect                              :56   [32m124196278459568128[0;39m 类名方法: com.controller.DocController.vote
+2021-12-10 01:11:40.240 INFO  com.aspect.LogAspect                              :57   [32m124196278459568128[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:40.241 INFO  com.aspect.LogAspect                              :80   [32m124196278459568128[0;39m 请求参数: [9]
+2021-12-10 01:11:40.625 INFO  com.Util.RedisUtil                                :31   [32m124196278459568128[0;39m key不存在，放入：DOC_VOTE_9_0:0:0:0:0:0:0:1，过期 60 秒
+2021-12-10 01:11:40.702 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196278459568128[0;39m ==>  Preparing: update doc set vote_count = vote_count + 1 where id = ?
+2021-12-10 01:11:40.703 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196278459568128[0;39m ==> Parameters: 9(Long)
+2021-12-10 01:11:40.792 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196278459568128[0;39m <==    Updates: 1
+2021-12-10 01:11:40.792 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196278459568128[0;39m ==>  Preparing: select id, ebook_id, parent, `name`, sort, view_count, vote_count from doc where id = ?
+2021-12-10 01:11:40.792 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196278459568128[0;39m ==> Parameters: 9(Long)
+2021-12-10 01:11:40.867 TRACE com.mapper.DocMapper.selectByPrimaryKey           :143  [32m124196278459568128[0;39m <==    Columns: id, ebook_id, parent, name, sort, view_count, vote_count
+2021-12-10 01:11:40.867 TRACE com.mapper.DocMapper.selectByPrimaryKey           :143  [32m124196278459568128[0;39m <==        Row: 9, 2, 0, 文档1, 1, 26, 2
+2021-12-10 01:11:40.868 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196278459568128[0;39m <==      Total: 1
+2021-12-10 01:11:40.911 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :562  [32m124196278459568128[0;39m syncSend failed. destination:VOTE_TOPIC, message:GenericMessage [payload=byte[25], headers={contentType=text/plain;charset=UTF-8, id=77535bff-5a06-cf97-bb9f-d597503438a3, timestamp=1639069900871}] 
+2021-12-10 01:11:40.914 ERROR com.controller.ControllerExceptionHandler         :61   [32m124196278459568128[0;39m 系统异常：
+org.springframework.messaging.MessagingException: Send [3] times, still failed, cost [38]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.; nested exception is org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [38]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:563)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:484)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:472)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.doSend(RocketMQTemplate.java:886)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.doSend(RocketMQTemplate.java:57)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:109)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:151)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:129)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:122)
+	at com.servicess.DocService.vote(DocService.java:172)
+	at com.servicess.DocService$$FastClassBySpringCGLIB$$2660883.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.servicess.DocService$$EnhancerBySpringCGLIB$$b1889be.vote(<generated>)
+	at com.controller.DocController.vote(DocController.java:65)
+	at com.controller.DocController$$FastClassBySpringCGLIB$$6a6c43cf.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.aspect.LogAspect.doAround(LogAspect.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.controller.DocController$$EnhancerBySpringCGLIB$$b667327a.vote(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [38]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:665)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1343)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:344)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:555)
+	... 88 common frames omitted
+Caused by: org.apache.rocketmq.client.exception.MQBrokerException: CODE: 1  DESC: create mapped file failed, server is busy or broken. BROKER: 192.168.1.210:10911
+For more information, please visit the url, http://rocketmq.apache.org/docs/faq/
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.processSendResponse(MQClientAPIImpl.java:666)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessageSync(MQClientAPIImpl.java:505)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessage(MQClientAPIImpl.java:487)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessage(MQClientAPIImpl.java:431)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendKernelImpl(DefaultMQProducerImpl.java:854)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:584)
+	... 91 common frames omitted
+2021-12-10 01:11:40.918 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver   :207  [32m124196278459568128[0;39m Resolved [org.springframework.messaging.MessagingException: Send [3] times, still failed, cost [38]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.; nested exception is org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [38]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.]
+2021-12-10 01:11:42.922 INFO  com.aspect.LogAspect                              :54   [32m124196289708691456[0;39m ------------- 开始 -------------
+2021-12-10 01:11:42.922 INFO  com.aspect.LogAspect                              :55   [32m124196289708691456[0;39m 请求地址: http://localhost:8081/doc/find-content/123355131981991936 GET
+2021-12-10 01:11:42.923 INFO  com.aspect.LogAspect                              :56   [32m124196289708691456[0;39m 类名方法: com.controller.DocController.findContent
+2021-12-10 01:11:42.923 INFO  com.aspect.LogAspect                              :57   [32m124196289708691456[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:42.923 INFO  com.aspect.LogAspect                              :80   [32m124196289708691456[0;39m 请求参数: [123355131981991936]
+2021-12-10 01:11:43.006 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196289708691456[0;39m ==>  Preparing: select id , content from content where id = ?
+2021-12-10 01:11:43.006 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196289708691456[0;39m ==> Parameters: 123355131981991936(Long)
+2021-12-10 01:11:43.069 TRACE com.mapper.ContentMapper.selectByPrimaryKey       :143  [32m124196289708691456[0;39m <==    Columns: id, content
+2021-12-10 01:11:43.069 TRACE com.mapper.ContentMapper.selectByPrimaryKey       :143  [32m124196289708691456[0;39m <==        Row: 123355131981991936, <<BLOB>>
+2021-12-10 01:11:43.069 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196289708691456[0;39m <==      Total: 1
+2021-12-10 01:11:43.070 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196289708691456[0;39m ==>  Preparing: update doc set view_count = view_count + 1 where id = ?
+2021-12-10 01:11:43.070 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196289708691456[0;39m ==> Parameters: 123355131981991936(Long)
+2021-12-10 01:11:43.190 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196289708691456[0;39m <==    Updates: 1
+2021-12-10 01:11:43.190 INFO  com.aspect.LogAspect                              :92   [32m124196289708691456[0;39m 返回结果: {"content":"","success":true}
+2021-12-10 01:11:43.190 INFO  com.aspect.LogAspect                              :93   [32m124196289708691456[0;39m ------------- 结束 耗时：268 ms -------------
+2021-12-10 01:11:44.681 INFO  com.aspect.LogAspect                              :54   [32m124196297086472192[0;39m ------------- 开始 -------------
+2021-12-10 01:11:44.682 INFO  com.aspect.LogAspect                              :55   [32m124196297086472192[0;39m 请求地址: http://localhost:8081/doc/vote/123355131981991936 GET
+2021-12-10 01:11:44.683 INFO  com.aspect.LogAspect                              :56   [32m124196297086472192[0;39m 类名方法: com.controller.DocController.vote
+2021-12-10 01:11:44.683 INFO  com.aspect.LogAspect                              :57   [32m124196297086472192[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:44.684 INFO  com.aspect.LogAspect                              :80   [32m124196297086472192[0;39m 请求参数: [123355131981991936]
+2021-12-10 01:11:44.715 INFO  com.Util.RedisUtil                                :31   [32m124196297086472192[0;39m key不存在，放入：DOC_VOTE_123355131981991936_0:0:0:0:0:0:0:1，过期 60 秒
+2021-12-10 01:11:44.806 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196297086472192[0;39m ==>  Preparing: update doc set vote_count = vote_count + 1 where id = ?
+2021-12-10 01:11:44.806 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196297086472192[0;39m ==> Parameters: 123355131981991936(Long)
+2021-12-10 01:11:44.898 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196297086472192[0;39m <==    Updates: 1
+2021-12-10 01:11:44.899 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196297086472192[0;39m ==>  Preparing: select id, ebook_id, parent, `name`, sort, view_count, vote_count from doc where id = ?
+2021-12-10 01:11:44.899 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196297086472192[0;39m ==> Parameters: 123355131981991936(Long)
+2021-12-10 01:11:44.944 TRACE com.mapper.DocMapper.selectByPrimaryKey           :143  [32m124196297086472192[0;39m <==    Columns: id, ebook_id, parent, name, sort, view_count, vote_count
+2021-12-10 01:11:44.944 TRACE com.mapper.DocMapper.selectByPrimaryKey           :143  [32m124196297086472192[0;39m <==        Row: 123355131981991936, 2, 9, 文档1.1, 1, 8, 3
+2021-12-10 01:11:44.944 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196297086472192[0;39m <==      Total: 1
+2021-12-10 01:11:44.951 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :562  [32m124196297086472192[0;39m syncSend failed. destination:VOTE_TOPIC, message:GenericMessage [payload=byte[27], headers={contentType=text/plain;charset=UTF-8, id=175fd94d-ffd2-b160-f83c-9da9229ce0ce, timestamp=1639069904945}] 
+2021-12-10 01:11:44.952 ERROR com.controller.ControllerExceptionHandler         :61   [32m124196297086472192[0;39m 系统异常：
+org.springframework.messaging.MessagingException: Send [3] times, still failed, cost [6]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.; nested exception is org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [6]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:563)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:484)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:472)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.doSend(RocketMQTemplate.java:886)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.doSend(RocketMQTemplate.java:57)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:109)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:151)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:129)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:122)
+	at com.servicess.DocService.vote(DocService.java:172)
+	at com.servicess.DocService$$FastClassBySpringCGLIB$$2660883.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.servicess.DocService$$EnhancerBySpringCGLIB$$b1889be.vote(<generated>)
+	at com.controller.DocController.vote(DocController.java:65)
+	at com.controller.DocController$$FastClassBySpringCGLIB$$6a6c43cf.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.aspect.LogAspect.doAround(LogAspect.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.controller.DocController$$EnhancerBySpringCGLIB$$b667327a.vote(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [6]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:665)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1343)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:344)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:555)
+	... 88 common frames omitted
+Caused by: org.apache.rocketmq.client.exception.MQBrokerException: CODE: 1  DESC: create mapped file failed, server is busy or broken. BROKER: 192.168.1.210:10911
+For more information, please visit the url, http://rocketmq.apache.org/docs/faq/
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.processSendResponse(MQClientAPIImpl.java:666)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessageSync(MQClientAPIImpl.java:505)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessage(MQClientAPIImpl.java:487)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessage(MQClientAPIImpl.java:431)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendKernelImpl(DefaultMQProducerImpl.java:854)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:584)
+	... 91 common frames omitted
+2021-12-10 01:11:44.954 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver   :207  [32m124196297086472192[0;39m Resolved [org.springframework.messaging.MessagingException: Send [3] times, still failed, cost [6]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.; nested exception is org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [6]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.]
+2021-12-10 01:11:46.323 INFO  com.aspect.LogAspect                              :54   [32m124196303973519360[0;39m ------------- 开始 -------------
+2021-12-10 01:11:46.323 INFO  com.aspect.LogAspect                              :55   [32m124196303973519360[0;39m 请求地址: http://localhost:8081/doc/find-content/123355187095146496 GET
+2021-12-10 01:11:46.324 INFO  com.aspect.LogAspect                              :56   [32m124196303973519360[0;39m 类名方法: com.controller.DocController.findContent
+2021-12-10 01:11:46.324 INFO  com.aspect.LogAspect                              :57   [32m124196303973519360[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:46.324 INFO  com.aspect.LogAspect                              :80   [32m124196303973519360[0;39m 请求参数: [123355187095146496]
+2021-12-10 01:11:46.377 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196303973519360[0;39m ==>  Preparing: select id , content from content where id = ?
+2021-12-10 01:11:46.377 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196303973519360[0;39m ==> Parameters: 123355187095146496(Long)
+2021-12-10 01:11:46.430 TRACE com.mapper.ContentMapper.selectByPrimaryKey       :143  [32m124196303973519360[0;39m <==    Columns: id, content
+2021-12-10 01:11:46.431 TRACE com.mapper.ContentMapper.selectByPrimaryKey       :143  [32m124196303973519360[0;39m <==        Row: 123355187095146496, <<BLOB>>
+2021-12-10 01:11:46.431 DEBUG com.mapper.ContentMapper.selectByPrimaryKey       :137  [32m124196303973519360[0;39m <==      Total: 1
+2021-12-10 01:11:46.431 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196303973519360[0;39m ==>  Preparing: update doc set view_count = view_count + 1 where id = ?
+2021-12-10 01:11:46.432 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196303973519360[0;39m ==> Parameters: 123355187095146496(Long)
+2021-12-10 01:11:46.524 DEBUG com.mapper.DocMapperCust.increaseViewCount        :137  [32m124196303973519360[0;39m <==    Updates: 1
+2021-12-10 01:11:46.524 INFO  com.aspect.LogAspect                              :92   [32m124196303973519360[0;39m 返回结果: {"content":"","success":true}
+2021-12-10 01:11:46.525 INFO  com.aspect.LogAspect                              :93   [32m124196303973519360[0;39m ------------- 结束 耗时：202 ms -------------
+2021-12-10 01:11:47.312 INFO  com.aspect.LogAspect                              :54   [32m124196308121686016[0;39m ------------- 开始 -------------
+2021-12-10 01:11:47.312 INFO  com.aspect.LogAspect                              :55   [32m124196308121686016[0;39m 请求地址: http://localhost:8081/doc/vote/123355187095146496 GET
+2021-12-10 01:11:47.312 INFO  com.aspect.LogAspect                              :56   [32m124196308121686016[0;39m 类名方法: com.controller.DocController.vote
+2021-12-10 01:11:47.312 INFO  com.aspect.LogAspect                              :57   [32m124196308121686016[0;39m 远程地址: 0:0:0:0:0:0:0:1
+2021-12-10 01:11:47.312 INFO  com.aspect.LogAspect                              :80   [32m124196308121686016[0;39m 请求参数: [123355187095146496]
+2021-12-10 01:11:47.354 INFO  com.Util.RedisUtil                                :31   [32m124196308121686016[0;39m key不存在，放入：DOC_VOTE_123355187095146496_0:0:0:0:0:0:0:1，过期 60 秒
+2021-12-10 01:11:47.479 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196308121686016[0;39m ==>  Preparing: update doc set vote_count = vote_count + 1 where id = ?
+2021-12-10 01:11:47.480 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196308121686016[0;39m ==> Parameters: 123355187095146496(Long)
+2021-12-10 01:11:47.569 DEBUG com.mapper.DocMapperCust.increaseVoteCount        :137  [32m124196308121686016[0;39m <==    Updates: 1
+2021-12-10 01:11:47.571 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196308121686016[0;39m ==>  Preparing: select id, ebook_id, parent, `name`, sort, view_count, vote_count from doc where id = ?
+2021-12-10 01:11:47.571 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196308121686016[0;39m ==> Parameters: 123355187095146496(Long)
+2021-12-10 01:11:47.616 TRACE com.mapper.DocMapper.selectByPrimaryKey           :143  [32m124196308121686016[0;39m <==    Columns: id, ebook_id, parent, name, sort, view_count, vote_count
+2021-12-10 01:11:47.617 TRACE com.mapper.DocMapper.selectByPrimaryKey           :143  [32m124196308121686016[0;39m <==        Row: 123355187095146496, 2, 9, 文档1.2, 2, 6, 3
+2021-12-10 01:11:47.617 DEBUG com.mapper.DocMapper.selectByPrimaryKey           :137  [32m124196308121686016[0;39m <==      Total: 1
+2021-12-10 01:11:47.623 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :562  [32m124196308121686016[0;39m syncSend failed. destination:VOTE_TOPIC, message:GenericMessage [payload=byte[27], headers={contentType=text/plain;charset=UTF-8, id=9f553003-bcd7-54ce-4fa7-e2fe84ce711a, timestamp=1639069907617}] 
+2021-12-10 01:11:47.624 ERROR com.controller.ControllerExceptionHandler         :61   [32m124196308121686016[0;39m 系统异常：
+org.springframework.messaging.MessagingException: Send [3] times, still failed, cost [4]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.; nested exception is org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [4]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:563)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:484)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:472)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.doSend(RocketMQTemplate.java:886)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.doSend(RocketMQTemplate.java:57)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:109)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:151)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:129)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.convertAndSend(AbstractMessageSendingTemplate.java:122)
+	at com.servicess.DocService.vote(DocService.java:172)
+	at com.servicess.DocService$$FastClassBySpringCGLIB$$2660883.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.servicess.DocService$$EnhancerBySpringCGLIB$$b1889be.vote(<generated>)
+	at com.controller.DocController.vote(DocController.java:65)
+	at com.controller.DocController$$FastClassBySpringCGLIB$$6a6c43cf.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.aspect.LogAspect.doAround(LogAspect.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.controller.DocController$$EnhancerBySpringCGLIB$$b667327a.vote(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [4]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:665)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1343)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:344)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:555)
+	... 88 common frames omitted
+Caused by: org.apache.rocketmq.client.exception.MQBrokerException: CODE: 1  DESC: create mapped file failed, server is busy or broken. BROKER: 192.168.1.210:10911
+For more information, please visit the url, http://rocketmq.apache.org/docs/faq/
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.processSendResponse(MQClientAPIImpl.java:666)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessageSync(MQClientAPIImpl.java:505)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessage(MQClientAPIImpl.java:487)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.sendMessage(MQClientAPIImpl.java:431)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendKernelImpl(DefaultMQProducerImpl.java:854)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:584)
+	... 91 common frames omitted
+2021-12-10 01:11:47.625 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver   :207  [32m124196308121686016[0;39m Resolved [org.springframework.messaging.MessagingException: Send [3] times, still failed, cost [4]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.; nested exception is org.apache.rocketmq.client.exception.MQClientException: Send [3] times, still failed, cost [4]ms, Topic: VOTE_TOPIC, BrokersSent: [PC-20210710SYOZ, PC-20210710SYOZ, PC-20210710SYOZ]
+See http://rocketmq.apache.org/docs/faq/ for further details.]
+2021-12-10 01:12:05.001 INFO  com.job.DocJob                                    :32   [32m124196382314729472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:12:05.088 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196382314729472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:12:05.089 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196382314729472[0;39m ==> Parameters: 
+2021-12-10 01:12:05.182 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196382314729472[0;39m <==    Updates: 2
+2021-12-10 01:12:05.182 INFO  com.job.DocJob                                    :35   [32m124196382314729472[0;39m 更新电子书下的文档数据结束，耗时：181毫秒
+2021-12-10 01:12:35.001 INFO  com.job.DocJob                                    :32   [32m124196508143849472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:12:35.045 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196508143849472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:12:35.045 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196508143849472[0;39m ==> Parameters: 
+2021-12-10 01:12:35.139 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196508143849472[0;39m <==    Updates: 2
+2021-12-10 01:12:35.139 INFO  com.job.DocJob                                    :35   [32m124196508143849472[0;39m 更新电子书下的文档数据结束，耗时：138毫秒
+2021-12-10 01:13:05.000 INFO  com.job.DocJob                                    :32   [32m124196633968775168[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:13:05.044 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196633968775168[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:13:05.044 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196633968775168[0;39m ==> Parameters: 
+2021-12-10 01:13:05.136 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196633968775168[0;39m <==    Updates: 2
+2021-12-10 01:13:05.136 INFO  com.job.DocJob                                    :35   [32m124196633968775168[0;39m 更新电子书下的文档数据结束，耗时：136毫秒
+2021-12-10 01:13:35.002 INFO  com.job.DocJob                                    :32   [32m124196759806283776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:13:35.049 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196759806283776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:13:35.049 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196759806283776[0;39m ==> Parameters: 
+2021-12-10 01:13:35.140 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196759806283776[0;39m <==    Updates: 2
+2021-12-10 01:13:35.140 INFO  com.job.DocJob                                    :35   [32m124196759806283776[0;39m 更新电子书下的文档数据结束，耗时：137毫秒
+2021-12-10 01:14:05.001 INFO  com.job.DocJob                                    :32   [32m124196885631209472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:14:05.048 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196885631209472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:14:05.049 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196885631209472[0;39m ==> Parameters: 
+2021-12-10 01:14:05.141 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124196885631209472[0;39m <==    Updates: 2
+2021-12-10 01:14:05.142 INFO  com.job.DocJob                                    :35   [32m124196885631209472[0;39m 更新电子书下的文档数据结束，耗时：141毫秒
+2021-12-10 01:14:35.002 INFO  com.job.DocJob                                    :32   [32m124197011464523776[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:14:35.074 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197011464523776[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:14:35.074 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197011464523776[0;39m ==> Parameters: 
+2021-12-10 01:14:35.172 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197011464523776[0;39m <==    Updates: 2
+2021-12-10 01:14:35.172 INFO  com.job.DocJob                                    :35   [32m124197011464523776[0;39m 更新电子书下的文档数据结束，耗时：170毫秒
+2021-12-10 01:15:05.000 INFO  com.job.DocJob                                    :32   [32m124197137285255168[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:15:05.058 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197137285255168[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:15:05.059 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197137285255168[0;39m ==> Parameters: 
+2021-12-10 01:15:05.147 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197137285255168[0;39m <==    Updates: 2
+2021-12-10 01:15:05.147 INFO  com.job.DocJob                                    :35   [32m124197137285255168[0;39m 更新电子书下的文档数据结束，耗时：147毫秒
+2021-12-10 01:15:35.001 INFO  com.job.DocJob                                    :32   [32m124197263118569472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:15:35.052 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197263118569472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:15:35.052 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197263118569472[0;39m ==> Parameters: 
+2021-12-10 01:15:35.170 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197263118569472[0;39m <==    Updates: 2
+2021-12-10 01:15:35.171 INFO  com.job.DocJob                                    :35   [32m124197263118569472[0;39m 更新电子书下的文档数据结束，耗时：170毫秒
+2021-12-10 01:16:05.001 INFO  com.job.DocJob                                    :32   [32m124197388947689472[0;39m 更新电子书下的文档数据开始
+2021-12-10 01:16:05.050 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197388947689472[0;39m ==>  Preparing: update ebook t1, (select ebook_id, count(1) doc_count, sum(view_count) view_count, sum(vote_count) vote_count from doc group by ebook_id) t2 set t1.doc_count = t2.doc_count, t1.view_count = t2.view_count, t1.vote_count = t2.vote_count where t1.id = t2.ebook_id
+2021-12-10 01:16:05.050 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197388947689472[0;39m ==> Parameters: 
+2021-12-10 01:16:05.164 DEBUG com.mapper.DocMapperCust.updateEbookInfo          :137  [32m124197388947689472[0;39m <==    Updates: 2
+2021-12-10 01:16:05.164 INFO  com.job.DocJob                                    :35   [32m124197388947689472[0;39m 更新电子书下的文档数据结束，耗时：163毫秒
