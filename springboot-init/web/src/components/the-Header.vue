@@ -1,6 +1,6 @@
 <template>
   <a-layout-header class="header">
-    <div class="logo">电子书</div>
+    <div class="logo">编程学习</div>
     <a-menu
         theme="dark"
         mode="horizontal"
@@ -133,6 +133,15 @@ export default defineComponent({
 
 
 <style>
+.logo {
+  width: 120px;
+  height: 31px;
+  /*background: rgba(255, 255, 255, 0.2);*/
+  /*margin: 16px 28px 16px 0;*/
+  float: left;
+  color: white;
+  font-size: 18px;
+}
 .login-menu {
   color: white;
   float: right;
