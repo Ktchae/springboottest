@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="94defb45-9644-4580-b299-a8ec25775bb3" name="Ktcha" url="http://106.55.231.49">
+        <fileTransfer accessType="SFTP" host="106.55.231.49" port="22" sshConfigId="83099936-52db-485d-a1d0-2cef21ded170" sshConfig="root@106.55.231.49:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

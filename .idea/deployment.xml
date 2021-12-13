@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Ktcha" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Ktcha">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/springboot-init" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/root/ktcha" local="$PROJECT_DIR$/springboot-init/target/dist" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
