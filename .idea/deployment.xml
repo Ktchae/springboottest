@@ -8,6 +8,7 @@
             <mapping local="$PROJECT_DIR$/springboot-init" web="/" />
             <mapping local="$PROJECT_DIR$" web="/" />
             <mapping deploy="/root/ktcha" local="$PROJECT_DIR$/springboot-init/target/dist" />
+            <mapping deploy="/root/web" local="$PROJECT_DIR$/springboot-init/web/dist" />
           </mappings>
         </serverdata>
       </paths>
