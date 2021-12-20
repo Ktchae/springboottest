@@ -37,8 +37,11 @@
       <a class="login-menu" v-show="user.id" style="position:absolute;right:130px;">
         <span>您好：{{ user.name }}</span>
       </a>
-      <a class="login-menu" v-show="!user.id" @click="showLoginModal" style="position:absolute;right:50px;">
+      <a class="login-menu" v-show="!user.id" @click="showLoginModal" style="position:absolute;right:70px;">
         <span>登录</span>
+      </a>
+      <a class="login-menu" v-show="!user.id" @click="registerLoginModal" style="position:absolute;right:30px;">
+        <span>注册</span>
       </a>
     </a-menu>
 
@@ -55,6 +58,24 @@
         </a-form-item>
         <a-form-item label="密码">
           <a-input v-model:value="loginUser.password" type="password" />
+        </a-form-item>
+      </a-form>
+    </a-modal>
+    <a-modal
+        title="注册"
+        v-model:visible="modalVisible"
+        :confirm-loading="modalLoading"
+        @ok="handleModalOk"
+    >
+      <a-form :model="user" :label-col="{ span: 6 }" :wrapper-col="{ span: 18 }">
+        <a-form-item label="登陆名">
+          <a-input v-model:value="user.loginName" :disabled="!!user.id"/>
+        </a-form-item>
+        <a-form-item label="昵称">
+          <a-input v-model:value="user.name" />
+        </a-form-item>
+        <a-form-item label="密码" v-show="!user.id">
+          <a-input v-model:value="user.password"/>
         </a-form-item>
       </a-form>
     </a-modal>
@@ -106,6 +127,38 @@ export default defineComponent({
       });
     };
 
+    /**
+     * 注册
+     */
+    const newuser = ref();
+    const modalVisible = ref(false);
+    const modalLoading = ref(false);
+    const registerLoginModal = () => {
+      modalVisible.value = true;
+    };
+    const handleModalOk = () => {
+      modalLoading.value = true;
+
+      // user.value.password = hexMd5(user.value.password + KEY);
+
+      axios.post("/user/save", user.value).then((response) => {
+        modalLoading.value = false;
+        const data = response.data; // data = commonResp
+        if (data.success) {
+          modalVisible.value = false;
+          message.success("注册成功！");
+        } else {
+          message.error(data.message);
+        }
+      });
+    };
+
+    const register = () => {
+      modalVisible.value = true;
+      newuser.value = {};
+    };
+
+
     // 退出登录
     const logout = () => {
       console.log("退出登录开始");
@@ -127,7 +180,13 @@ export default defineComponent({
       loginUser,
       login,
       user,
-      logout
+      logout,
+      register,
+
+      registerLoginModal,
+      modalVisible,
+      modalLoading,
+      handleModalOk
     }
   }
 });
