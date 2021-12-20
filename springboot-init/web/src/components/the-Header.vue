@@ -4,11 +4,16 @@
     <a-menu
         theme="dark"
         mode="horizontal"
-        :default-selected-keys="['2']"
         :style="{ lineHeight: '64px' }"
     >
       <a-menu-item key="/">
         <router-link to="/">首页</router-link>
+      </a-menu-item>
+      <a-menu-item key="/write">
+        <router-link to="/write">写字板</router-link>
+      </a-menu-item>
+      <a-menu-item key="/about">
+        <router-link to="/about">关于我们</router-link>
       </a-menu-item>
       <a-menu-item key="/admin/user" :style="user.id? {} : {display:'none'}">
         <router-link to="/admin/user">用户管理</router-link>
@@ -18,9 +23,6 @@
       </a-menu-item>
       <a-menu-item key="/admin/category" :style="user.id? {} : {display:'none'}">
         <router-link to="/admin/category">分类管理</router-link>
-      </a-menu-item>
-      <a-menu-item key="/about">
-        <router-link to="/about">关于我们</router-link>
       </a-menu-item>
       <a-popconfirm
           title="确认退出登录?"
